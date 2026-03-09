@@ -1,0 +1,15 @@
+{% sw_extends '@Storefront/storefront/component/buy-widget/buy-widget.html.twig' %}
+
+{% block buy_widget_buy_container %}
+    {{ parent() }}
+
+    {% if config('FroshProductCompare.config.active') %}
+        {% block page_product_detail_add_to_compare_button %}
+            <div class="mb-2">
+                {% sw_include '@Storefront/storefront/component/product/card/compare-button.html.twig' with {
+                    product: product
+                } only %}
+            </div>
+        {% endblock %}
+    {% endif %}
+{% endblock %}
